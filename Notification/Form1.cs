@@ -20,7 +20,7 @@ namespace Notification
             InitializeComponent();
             this.WindowState = FormWindowState.Minimized;
             this.ShowInTaskbar = false;
-            timer = new System.Threading.Timer(PopUp, null, 1000, 10000);
+            timer = new System.Threading.Timer(PopUp, null, 1000, 5000);
             
         }
 
@@ -32,12 +32,14 @@ namespace Notification
                 PopupNotifier popup = new PopupNotifier();
                 popup.Image = Properties.Resources.info;
 
+                //popup.OptionsMenu.Dock = DockStyle.Top;
+
                 //popup.BodyColor = Color.Yellow;
                 popup.ContentColor = Color.Black;
                 popup.TitleText = "Sales Stats";
                 popup.TitleColor = Color.Red;
-                popup.ContentText = $"Atlantic Biologicals Sales Count: 33 /n Sales Calls: 7";
-
+                popup.ContentText = $"Sales Count: 33 /n Sales Calls: 7";
+                
                 popup.Popup();
             });
         }
